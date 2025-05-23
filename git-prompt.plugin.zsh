@@ -32,26 +32,42 @@ __git_prompt() {
         if [[ -z "$git_status" ]]; then
             status_tooltip="Working directory is clean"
         else
-            local staged=$(echo "$git_status" | grep -E '^[MADRC]' | wc -l | tr -d ' ')
-            local unstaged=$(echo "$git_status" | grep -E '^.[MADRC]' | wc -l | tr -d ' ')
+            local staged=0
+            local unstaged=0
             
-            # Handle staged files message
+            # Count staged and unstaged changes more accurately
+            while IFS= read -r line; do
+                if [[ ${line:0:1} =~ [MADRC] ]]; then
+                    ((staged++))
+                fi
+                if [[ ${line:1:1} =~ [MADRC] ]]; then
+                    ((unstaged++))
+                fi
+            done < <(echo "$git_status")
+            
+            # Build tooltip message with proper spacing
+            local messages=()
+            
+            # Add staged files message
             if [[ "$staged" != "0" ]]; then
                 if [[ "$staged" == "1" ]]; then
-                    status_tooltip="There is 1 staged file ready to commit"
+                    messages+=("There is 1 staged file ready to commit")
                 else
-                    status_tooltip="There are ${staged} staged files ready to commit"
+                    messages+=("There are ${staged} staged files ready to commit")
                 fi
             fi
             
-            # Handle unstaged changes message
+            # Add unstaged changes message
             if [[ "$unstaged" != "0" ]]; then
                 if [[ "$unstaged" == "1" ]]; then
-                    status_tooltip="${status_tooltip:+$status_tooltip\n}There is 1 unstaged change"
+                    messages+=("There is 1 unstaged change")
                 else
-                    status_tooltip="${status_tooltip:+$status_tooltip\n}There are ${unstaged} unstaged changes"
+                    messages+=("There are ${unstaged} unstaged changes")
                 fi
             fi
+            
+            # Join messages with newlines
+            status_tooltip=$(IFS=$'\n'; echo "${messages[*]}")
         fi
         
         # Build the visible prompt parts with colors
