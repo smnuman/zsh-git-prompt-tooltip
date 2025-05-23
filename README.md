@@ -80,7 +80,7 @@ A beautifully informative Git prompt for ZSH that shows repository status with h
 
 1. Clone this repository to your ZSH plugins directory:
 ```bash
-git clone https://github.com/numansyed/git-prompt-tooltips.git ${ZDOTDIR:-$HOME}/.zsh/plugins/git-prompt
+git clone https://github.com/smnuman/zsh-git-prompt-tooltip.git ${ZDOTDIR:-$HOME}/.zsh/plugins/git-prompt
 ```
    > Note: `${ZDOTDIR:-$HOME}` will use the value of `$ZDOTDIR` if set, otherwise falls back to your home directory (`$HOME`)
 
