@@ -58,6 +58,7 @@ A beautifully informative Git prompt for ZSH that shows repository status with h
 ```bash
 git clone https://github.com/numansyed/git-prompt-tooltips.git ${ZDOTDIR:-$HOME}/.zsh/plugins/git-prompt
 ```
+   > Note: `${ZDOTDIR:-$HOME}` will use the value of `$ZDOTDIR` if set, otherwise falls back to your home directory (`$HOME`)
 
 2. Add the plugin to your `.zshrc`:
 ```bash
@@ -66,8 +67,9 @@ source ${ZDOTDIR:-$HOME}/.zsh/plugins/git-prompt/git-prompt.plugin.zsh
 
 3. Add the prompt function to your `PROMPT` variable in `.zshrc`:
 ```bash
-PROMPT='$(__git_prompt)$ '
+PROMPT='${time_info}${current_dir}$(__git_prompt)${ret_status} '
 ```
+   > This is an example prompt that includes time, current directory, git status, and return status. Customize it to your needs.
 
 ## Requirements 🛠
 
