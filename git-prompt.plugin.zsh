@@ -1,5 +1,5 @@
 # Git prompt with tooltips plugin
-# Author: Your Name
+# Author: Numan Syed
 # License: MIT
 # Version: 1.0.0
 
