@@ -13,44 +13,68 @@ A beautifully informative Git prompt for ZSH that shows repository status with h
 ## Status Indicators
 
 ### Branch Status
+<div style="padding-left: 20px">
+  
 ![Branch Status](images/git-status-branch.png)
 - Shows current branch name in magenta
 - Hover to see branch name and any special states
+</div>
 
 ### Clean State
+<div style="padding-left: 20px">
+  
 ![Clean State](images/git_status_clean_tooltip.png)
 - ✓ Green checkmark indicates clean working directory
 - Hover to see confirmation message
+</div>
 
 ### Staged Changes
+<div style="padding-left: 20px">
+  
 ![Staged Changes](images/git-status-staged.png)
 - ● Yellow dot with count shows staged files
 - Hover to see number of files ready to commit
+</div>
 
 ### Unstaged Changes
+<div style="padding-left: 20px">
+  
 ![Unstaged Changes](images/git-status-unstaged.png)
 - ● Red dot with count shows modified files
 - Hover to see number of unstaged changes
+</div>
 
 ### Untracked Files
+<div style="padding-left: 20px">
+  
 ![Untracked Files](images/git-status-untracked.png)
 - ○ Blue circle with count shows untracked files
 - Hover to see number of untracked files
+</div>
 
 ### Merge Conflicts
+<div style="padding-left: 20px">
+  
 ![Merge Conflicts](images/git-status-conflict.png)
 - ✖ Red X with count shows merge conflicts
 - Hover to see number of conflicts to resolve
+</div>
 
 ### Stashed Changes
+<div style="padding-left: 20px">
+  
 ![Stashed Changes](images/git-status-stashed.png)
 - ⚑ Cyan flag with count shows stashed changes
 - Hover to see number of stashed changesets
+</div>
 
 ### Special States
+<div style="padding-left: 20px">
+  
 ![Merging State](images/git-status-MERGING.png)
 - Shows special states like MERGING, REBASING, etc.
 - Branch name turns red during these states
+</div>
 
 ## Installation 📦
 
