@@ -83,7 +83,11 @@ PROMPT='${time_info}${current_dir}$(__git_prompt)${ret_status} '
 
 - Zsh shell
 - Git
-- A terminal that supports OSC-8 hyperlinks (most modern terminals do)
+- A terminal that supports OSC-8 hyperlinks:
+  - ✅ VSCode Integrated Terminal
+  - ✅ iTerm2
+  - ✅ Warp Terminal
+  - ❌ Default macOS Terminal.app (will show status without tooltips)
 
 ## License 📄
 
