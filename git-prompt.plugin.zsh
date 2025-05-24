@@ -11,7 +11,13 @@ function add_tooltip_trigger() {
     local content=$1
     local tooltip=$2
     # Using standard OSC 8 with empty URL but tooltip content
-    echo "%{\e]8;;${tooltip}\a%}${content}%{\e]8;;\a%}"
+    if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+        # VSCode terminal format
+        echo "%{\e]8;;${tooltip}\a%}${content}%{\e]8;;\a%}"
+    else
+        # Standard terminal format (using \033 instead of \e)
+        echo "%{\033]8;;${tooltip}\007%}${content}%{\033]8;;\007%}"
+    fi
 }
 
 # Git prompt function with tooltip
